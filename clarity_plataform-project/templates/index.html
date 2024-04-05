@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação.App</title>
+</head>
+<body>
+    <h1>Plataforma Web de Doação</h1>
+    <p>
+        <strong>Plataforma destinada para fazer doações.</strong><br>
+        Este é um aplicativo web dedicado a quem precisa e a quem desejar fazer o bem.<br>
+    </p>
+    <h2>Faça sua Doação:</h2>
+    <form action="/donate" method="POST">
+        <label for="charity_id">Escolha a Instituição de Caridade:</label>
+        <select name="charity_id" id="charity_id">
+            {% for charity in charities %}
+                <option value="{{ charity.id }}">{{ charity.nome }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="valor_doacao">Valor da Doação:</label>
+        <input type="number" name="valor_doacao" id="valor_doacao" step="0.01" required><br>
+        <button type="submit">Doar</button>
+    </form>
+    <p>
+        <a href="{{ url_for('generate_barcode', donation_id=1) }}">Gerar Código de Barras</a><br>
+        <a href="{{ url_for('generate_qrcode', donation_id=1) }}">Gerar QR Code</a>
+    </p>
+</body>
+</html>

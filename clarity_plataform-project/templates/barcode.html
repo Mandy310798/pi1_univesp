@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Generated</title>
+</head>
+<body>
+    <h1>Barcode Generated Successfully</h1>
+    <p>Valor da Doação: R$ {{ valor_doacao }}</p>
+    <img src="{{ url_for('static', filename=filename) }}" alt="Barcode Image">
+    <p><a href="{{ url_for('index') }}">Voltar para a página inicial</a></p>
+</body>
+</html>
